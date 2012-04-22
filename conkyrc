@@ -1,0 +1,12 @@
+out_to_console yes
+out_to_x no
+background no
+update_interval 2
+total_run_times 0
+use_spacer none
+use_xft
+use_spacer
+
+TEXT
+
+[${freq 1}MHz ${cpu cpu1}%${cpu cpu2}% ${hwmon 2 temp 3}c ${hwmon 2 temp 2}c] [${battery_short}] [${wireless_link_qual_perc wlan0}% '${wireless_essid wlan0}' ${upspeed wlan0} ${downspeed wlan0}] [${time %b %d %H:%M}]
