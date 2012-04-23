@@ -1,0 +1,42 @@
+[submodule "vim/bundle/command-t.git"]
+	path = vim/bundle/command-t.git
+	url = git://git.wincent.com/command-t.git
+[submodule "vim/bundle/snipmate-snippets.git"]
+	path = vim/bundle/snipmate-snippets.git
+	url = https://github.com/honza/snipmate-snippets.git
+[submodule "vim/bundle/taglist.vim.git"]
+	path = vim/bundle/taglist.vim.git
+	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "vim/bundle/tlib_vim.git"]
+	path = vim/bundle/tlib_vim.git
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "vim/bundle/vim-addon-mw-utils.git"]
+	path = vim/bundle/vim-addon-mw-utils.git
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "vim/bundle/vim-colors-solarized.git"]
+	path = vim/bundle/vim-colors-solarized.git
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/bundle/vim-commentary.git"]
+	path = vim/bundle/vim-commentary.git
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim/bundle/vim-endwise.git"]
+	path = vim/bundle/vim-endwise.git
+	url = https://github.com/tpope/vim-endwise.git
+[submodule "vim/bundle/vim-fugitive.git"]
+	path = vim/bundle/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/bundle/vim-git.git"]
+	path = vim/bundle/vim-git.git
+	url = https://github.com/tpope/vim-git.git
+[submodule "vim/bundle/vim-matchit.git"]
+	path = vim/bundle/vim-matchit.git
+	url = https://github.com/tsaleh/vim-matchit.git
+[submodule "vim/bundle/vim-rooter.git"]
+	path = vim/bundle/vim-rooter.git
+	url = https://github.com/airblade/vim-rooter.git
+[submodule "vim/bundle/vim-ruby-complexity.git"]
+	path = vim/bundle/vim-ruby-complexity.git
+	url = https://github.com/skammer/vim-ruby-complexity.git
+[submodule "vim/bundle/vim-snipmate.git"]
+	path = vim/bundle/vim-snipmate.git
+	url = git://github.com/garbas/vim-snipmate.git
