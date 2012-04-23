@@ -9,9 +9,12 @@ xsetroot -solid black
 google-chrome &
 
 $HOME/bin/nark.sh &
-urxvtd -f -o &
+xrdb ~/.Xresources
+urxvtd -f -o 
+urxvtc &
 
 conky | while read -r; do xsetroot -name "$REPLY"; done & 
 #exec ck-launch-session dwm
+
 exec dwm
 
