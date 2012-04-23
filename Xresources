@@ -55,6 +55,13 @@ URxvt.cursorUnderline:      false
 ! Pointer
 URxvt.pointerBlank:         true
 
+
+UXTerm*faceName:               Terminus
+UXTerm*faceSize:               10
+/* UXTerm*background:             #002b36 */
+/* UXTerm*foreground:             #657b83 */
+UXTerm*saveLines:              8192
+
 !!Source http://github.com/altercation/solarized
 
 *background: #002b36
@@ -96,3 +103,4 @@ URxvt.pointerBlank:         true
 !! white dark/light
 *color7: #eee8d5
 *color15: #fdf6e3
+

@@ -45,11 +45,11 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 
 set cursorline
 
-set cmdheight=2
-set switchbuf=useopen
-set numberwidth=5
-set showtabline=2
-set winwidth=79
+" set cmdheight=2
+" set switchbuf=useopen
+" set numberwidth=5
+" set showtabline=2
+" set winwidth=79
 
 let mapleader=","
 
