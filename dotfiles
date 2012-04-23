@@ -6,7 +6,7 @@ set -e
 backup_dir=`mktemp -d -p $PWD`
 
 tmp_dirs=`ls tmp.* | xargs`
-ignore_files="README.md dotfiles .git $tmp_dirs" 
+ignore_files=".gitignore README.md dotfiles .git $tmp_dirs" 
 
 # to come...
 sym_dir='bin'
