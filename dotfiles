@@ -28,7 +28,8 @@ function prefix_dot {
 
 function backup_files {
   while read file; do
-    mv $HOME/$file $backup_dir/$file
+    touch $HOME/$file
+    mv -f $HOME/$file $backup_dir/$file
   done
 }
 
