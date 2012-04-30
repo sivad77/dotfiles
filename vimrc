@@ -31,7 +31,7 @@ set scrolloff=3                   " Show 3 lines of context around the cursor.
 
 set title                         " Set the terminal's title
 
-set visualbell                    " No beeping.
+" set visualbell                    " No beeping.
 
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
@@ -97,7 +97,7 @@ augroup vimrcEx
 augroup END
 
 " set t_Co=256
-colorscheme solarized
-set background=dark
+colorscheme dc3
+" set background=dark
 " color grb256
 
