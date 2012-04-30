@@ -1,7 +1,7 @@
-Josh Dotfiles!
+Josh's Dotfiles!
 ==============
 
-*TOTALLY UNTESTED!!!*
+*Partially UNTESTED!!!*
 
 I thought it was finally time to SCM my dots.
 
