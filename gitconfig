@@ -1,3 +1,10 @@
 [user]
 	email = sivad77@gmail.com
-	name = Joshua Davis
+  name = Joshua Davis
+
+[diff]
+[color]
+  ui = auto
+
+[alias]
+  l = "!source ~/.githelpers && pretty_git_log"
