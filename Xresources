@@ -1,12 +1,82 @@
+!
+!! ~/.Xdefaults
+!! author  : OK <ok100.ok100.ok100@gmail.com>
+!! website : https://github.com/ok100
+!
+
+!-- colors --!
+! dc2, a.k.a. darkcourses v. 2
+! vim:ft=xdefaults
+
+*foreground: #999999
+*background: #020202
+
+! black
+*color0:     #1A1A1A
+*color8:     #4C4C4C
+
+! red
+*color1:     #802635
+*color9:     #B3354C
+
+! green
+*color2:     #608040
+*color10:    #4BA65A
+
+! yellow
+*color3:     #877C43
+*color11:    #BF9F5F
+
+! blue
+*color4:     #1C678C
+*color12:    #3995BF
+
+! magenta
+*color5:     #684D80
+*color13:    #A64286
+
+! cyan
+*color6:     #337373
+*color14:    #6C98A6
+
+! white
+*color7:     #808080
+*color15:    #B3B3B3
+
+
+!-- urxvt --!
+urxvt.scrollBar:          false
+urxvt.font:xft:terminus:pixelsize=14
+urxvt.borderLess:         false
+urxvt.internalBorder:     1
+urxvt.buffered:           true
+urxvt.urgentOnBell:       true
+urxvt.geometry:           81x21
+urxvt.cursorBlink:        true
+URxvt.perl-ext-common:    default,matcher
+URxvt.urlLauncher:        /home/ok/bin/browser
+URxvt.matcher.button:     1
+URxvt.matcher.pattern.1:  \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+
+!-- dzen2 --!
+dzen2.font:               -*-termsyn.icons-medium-*-*-*-11-*-*-*-*-*-*-*
+dzen2.foreground:         #B3B3B3
+dzen2.background:         #020202
+
+!-- xft --!
+Xft.autohint:             0
+Xft.lcdfilter:            lcddefault
+Xft.hintstyle:            hintslight
+Xft.hinting:              1
+Xft.antialias:            1
+Xft.rgba:                 rgb
+
+
 !-------------------------------------------------------------------------------
 ! Xft settings
 !-------------------------------------------------------------------------------
 
 Xft.dpi:                    96
-Xft.antialias:              true
-Xft.rgba:                   rgb
-Xft.hinting:                full
-! Xft.hintstyle:              hintslight
 
 !-------------------------------------------------------------------------------
 ! URxvt settings
@@ -43,9 +113,6 @@ URxvt.scrollStyle:          rxvt
 URxvt.scrollBar:            false
 
 ! Perl extensions
-URxvt.perl-ext-common:      default,matcher
-URxvt.matcher.button:       1
-URxvt.urlLauncher:          firefox
 
 ! Cursor
 URxvt.cursorBlink:          true
@@ -63,44 +130,3 @@ UXTerm*faceSize:               10
 UXTerm*saveLines:              8192
 
 !!Source http://github.com/altercation/solarized
-
-*background: #002b36
-*foreground: #657b83
-!!*fading: 40
-*fadeColor: #002b36
-*cursorColor: #93a1a1
-*pointerColorBackground: #586e75
-*pointerColorForeground: #93a1a1
-
-!! black dark/light
-*color0: #073642
-*color8: #002b36
-
-!! red dark/light
-*color1: #dc322f
-*color9: #cb4b16
-
-!! green dark/light
-*color2: #859900
-*color10: #586e75
-
-!! yellow dark/light
-*color3: #b58900
-*color11: #657b83
-
-!! blue dark/light
-*color4: #268bd2
-*color12: #839496
-
-!! magenta dark/light
-*color5: #d33682
-*color13: #6c71c4
-
-!! cyan dark/light
-*color6: #2aa198
-*color14: #93a1a1
-
-!! white dark/light
-*color7: #eee8d5
-*color15: #fdf6e3
-

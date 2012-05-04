@@ -4,6 +4,8 @@ silent! call pathogen#runtime_append_all_bundles()
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
+set ofu=syntaxcomplete#Complete
+
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
@@ -69,17 +71,16 @@ map <Down> :echo "no!"<cr>
 vmap > >gv
 vmap < <gv
 
-"FIXME: not working, a conflict?
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-n>
+" function! InsertTabWrapper()
+"     let col = col('.') - 1
+"     if !col || getline('.')[col - 1] !~ '\k'
+"         return "\<tab>"
+"     else
+"         return "\<c-p>"
+"     endif
+" endfunction
+" inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+" inoremap <s-tab> <c-n>
 
 set backup
 set backupdir=~/.vim/backup/
@@ -100,4 +101,25 @@ augroup END
 colorscheme dc3
 " set background=dark
 " color grb256
+
+if v:version >= 700
+  set omnifunc=syntaxcomplete#Complete " override built-in C omnicomplete with C++ OmniCppComplete plugin
+  let OmniCpp_GlobalScopeSearch   = 1
+  let OmniCpp_DisplayMode         = 1
+  let OmniCpp_ShowScopeInAbbr     = 0 "do not show namespace in pop-up
+  let OmniCpp_ShowPrototypeInAbbr = 1 "show prototype in pop-up
+  let OmniCpp_ShowAccess          = 1 "show access in pop-up
+  let OmniCpp_SelectFirstItem     = 1 "select first item in pop-up
+  set completeopt=menuone,menu,longest
+endif
+
+" if version >= 700
+"   let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+"   highlight   clear
+"   highlight   Pmenu         ctermfg=0 ctermbg=2
+"   highlight   PmenuSel      ctermfg=0 ctermbg=7
+"   highlight   PmenuSbar     ctermfg=7 ctermbg=0
+"   highlight   PmenuThumb    ctermfg=0 ctermbg=7
+" endif
+
 
