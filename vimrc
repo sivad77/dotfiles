@@ -1,5 +1,6 @@
 set nocompatible 
 
+set encoding=utf-8
 silent! call pathogen#runtime_append_all_bundles()
 
 syntax enable                     " Turn on syntax highlighting.
@@ -46,6 +47,8 @@ set laststatus=2                  " Show the status line all the time
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 set cursorline
+set list
+set listchars=trail:·
 
 " set cmdheight=2
 " set switchbuf=useopen
