@@ -1,0 +1,17 @@
+
+#!/bin/bash
+
+IN="LVDS-1"
+EXT="DP-1"
+
+
+if (xrandr | grep "$EXT" | grep discon)
+    then
+    xrandr --output $EXT --off --output $IN --auto
+    echo here
+    else
+        if (xrandr | grep "$EXT" | grep " connected")
+            then
+            xrandr --output $IN --off --output $EXT --auto
+        fi
+fi

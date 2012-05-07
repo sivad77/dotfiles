@@ -1,0 +1,15 @@
+#!/bin/sh 
+
+if [ ! -x "/usr/bin/inotifywait" ] ; then
+	echo "part of the 'inotify-tools' package. Please install that and try again."
+	exit 1
+fi 
+ 
+while true ; do
+  
+  # run our command
+  $@
+ 
+  # wait for file to save
+	inotifywait -q -q -e 'close_write' --exclude '^\..*\.sw[px]*$|4913|~$' .
+done

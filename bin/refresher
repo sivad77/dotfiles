@@ -1,0 +1,30 @@
+#!/usr/bin/ruby
+
+require 'em-http'
+require 'faye/websocket'
+require 'json'
+
+EM.run do
+  # Chrome runs an HTTP handler listing available tabs
+  conn = EM::HttpRequest.new('http://localhost:9222/json').get
+  conn.callback do
+    resp = JSON.parse(conn.response)
+
+    # connect to first tab via the WS debug URL
+    ws = Faye::WebSocket::Client.new(resp.first['webSocketDebuggerUrl'])
+    ws.onopen = lambda do |event|
+      # once connected, enable network tracking
+      ws.send JSON.dump({id: 1, method: 'Network.enable'})
+
+      ws.send JSON.dump({
+        id: 2,
+        method: 'Page.reload',
+        params: {ignoreCache: true}
+      })
+    end
+
+    ws.onmessage = lambda do |event|
+      exit
+    end
+  end
+end
