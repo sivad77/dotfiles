@@ -1,0 +1,26 @@
+"keys volume down"
+  XF86AudioLowerVolume
+
+"keys volume up"
+  XF86AudioRaiseVolume
+
+"keys volume mute"
+  XF86AudioMute
+
+
+
+
+"keys keyboard down"
+  XF86KbdBrightnessDown
+
+"keys keyboard up"
+  XF86KbdBrightnessUp
+
+
+
+
+"keys backlight down"
+  XF86MonBrightnessDown
+
+"keys backlight up"
+  XF86MonBrightnessUp

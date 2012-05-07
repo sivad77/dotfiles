@@ -1,0 +1,73 @@
+#!/bin/sh
+
+main() {
+  case "$1" in 
+    volume) volume $2;;
+    backlight) backlight $2;;
+    keyboard) keyboard $2;;
+  esac
+}
+
+volume() {
+  CHANNEL="Master" 
+  VOLUME_SOUND="/usr/share/pommed/click.wav"
+  case "${1}" in
+        up) amixer -q set ${CHANNEL} 1+ ;; 
+      down) amixer -q set ${CHANNEL} 1- ;; 
+    toggle) amixer -q set ${CHANNEL} toggle ;;
+         *) exit 1 ;;
+  esac
+
+  test -e ${VOLUME_SOUND} && aplay ${VOLUME_SOUND}
+}
+
+backlight() {
+  BACKLIGHT_SYS_DIR="/sys/class/backlight/gmux_backlight"
+  MAX_BRIGHTNESS="`cat ${BACKLIGHT_SYS_DIR}/max_brightness`"
+  CURR_BRIGHTNESS="`cat ${BACKLIGHT_SYS_DIR}/brightness`"
+
+  case "${1}" in
+      up) DELTA="+ 2500" ;;
+    down) DELTA="- 2500" ;;
+       *) exit 1 ;;
+  esac 
+
+  NEW_BRIGHTNESS=`echo "${CURR_BRIGHTNESS} ${DELTA}" | bc`
+
+  if test ${NEW_BRIGHTNESS} -lt 0 ; then
+    NEW_BRIGHTNESS = 0
+  fi  
+
+  echo $NEW_BRIGHTNESS
+  
+  echo ${NEW_BRIGHTNESS} > ${BACKLIGHT_SYS_DIR}/brightness 
+ 
+}
+
+keyboard() {
+  BACKLIGHT_SYS_DIR="/sys/class/leds/smc::kbd_backlight"
+  MAX_BRIGHTNESS="`cat ${BACKLIGHT_SYS_DIR}/max_brightness`"
+  CURR_BRIGHTNESS="`cat ${BACKLIGHT_SYS_DIR}/brightness`"
+
+  case "${1}" in
+      up) DELTA="+ 10" ;;
+    down) DELTA="- 10" ;;
+       *) exit 1 ;;
+  esac 
+
+  NEW_BRIGHTNESS=`echo "${CURR_BRIGHTNESS} ${DELTA}" | bc`
+
+  if test ${NEW_BRIGHTNESS} -lt 0
+    then
+    NEW_BRIGHTNESS=0 
+  fi
+
+  if test ${NEW_BRIGHTNESS} -gt ${MAX_BRIGHTNESS}
+    then
+    NEW_BRIGHTNESS=${MAX_BRIGHTNESS} 
+  fi
+
+  echo ${NEW_BRIGHTNESS} > ${BACKLIGHT_SYS_DIR}/brightness 
+}
+
+main $@

@@ -8,10 +8,12 @@ xsetroot -solid black
 #xautolock -time 5 -locker slock -nowlocker slock -detectsleep -corners 000+ -cornerdelay 3 & 
 chromium &
 
-$HOME/bin/nark.sh &
+$HOME/bin/nark &
 xrdb ~/.Xresources
 urxvtd -f -o 
 urxvtc &
+
+xbindkeys &
 
 conky | while read -r; do xsetroot -name "$REPLY"; done & 
 #exec ck-launch-session dwm# Source scripts in /etc/X11/xinit/xinitrc.d/

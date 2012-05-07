@@ -34,5 +34,6 @@ ZSH_THEME="arrow"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+source .alias/commands
 
 # Customize to your needs...
