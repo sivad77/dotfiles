@@ -34,6 +34,11 @@ ZSH_THEME="arrow"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source .alias/commands
+source $HOME/.alias/commands
+
+export PATH="$HOME/.gem/ruby/1.9.1/bin:${PATH}"
+export PSQL_EDITOR='vim +"set syntax=sql" '
+
+unsetopt correct_all
 
 # Customize to your needs...

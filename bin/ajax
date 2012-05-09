@@ -1,0 +1,7 @@
+#!/bin/bash
+
+rm /tmp/a
+
+curl $2 -sku joshua.davis:X3j11x3j11 https://local.dev/$1 > /tmp/a
+
+cat /tmp/a | jshon 2> /dev/null || cat /tmp/a

@@ -8,3 +8,18 @@
 
 [alias]
   l = "!source ~/.githelpers && pretty_git_log"
+	permission-reset = "!git diff -p | grep -E '^(diff|old mode|new mode)' | sed -e 's/^old/NEW/;s/^new/old/;s/^NEW/new/' | git apply"
+	meld = !/home/josh/projects/git-meld/git-meld.pl
+
+[sendemail]
+	smtpserver = exchange-hub.peer1.com
+	smtpserverport = 587
+	smtpencryption = tls
+	smtpuser = joshua.davis
+	smtppass = X3j11x3j11
+[imap]
+	smtpserver = exchange-hub.peer1.com
+	smtpserverport = 587
+	smtpencryption = tls
+	smtpuser = joshua.davis
+	smtppass = X3j11x3j11

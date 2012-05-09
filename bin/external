@@ -1,8 +1,8 @@
 
 #!/bin/bash
 
-IN="LVDS-1"
-EXT="DP-1"
+IN="LVDS"
+EXT="DisplayPort-0"
 
 
 if (xrandr | grep "$EXT" | grep discon)

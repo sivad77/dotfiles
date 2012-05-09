@@ -6,7 +6,7 @@ xsetroot -solid black
 #xbindkeys
 #xscreensaver -no-splash &
 #xautolock -time 5 -locker slock -nowlocker slock -detectsleep -corners 000+ -cornerdelay 3 & 
-chromium &
+chromium --remote-debugging-port=9222 &
 
 $HOME/bin/nark &
 xrdb ~/.Xresources

@@ -1,0 +1,60 @@
+#!/bin/bash
+#Written by Jartt Stevens
+#monitor laptop battery, display a warning message at a given percentage
+#and shutdown the system at another 
+#tested on MacBook5,1 (late 2008 aluminum Macbook) running Arch Linux / fluxbox
+#requires zenity for notifications
+#can be placed in user crontab
+#* * * * * /home/user/bin/batt-mon.sh
+
+BATT=BAT0
+ADAPTER=ADP1
+BATT_MON_FILE=/tmp/battery_mon
+WARN=10
+SHUTDOWN=7
+
+touch ${BATT_MON_FILE}
+BATT_LAST=`head -1 ${BATT_MON_FILE}`
+ADAPTER_MODE=`cat /sys/class/power_supply/${ADAPTER}/online`
+
+if test "${ADAPTER_MODE}" -eq 1
+	then
+	echo "ONLINE" > ${BATT_MON_FILE}
+	exit 0
+fi
+
+BATT_MODE=`cat /sys/class/power_supply/${BATT}/status`
+BATT_FULL=`cat /sys/class/power_supply/${BATT}/energy_full`
+BATT_CURR=`cat /sys/class/power_supply/${BATT}/energy_now`
+BATT_CENT=`echo "${BATT_CURR} ${BATT_FULL}" | awk '{print int(($1 / $2)*100)}' `
+
+if test "${BATT_CENT}" -gt "${WARN}" 
+	then
+	echo "OK" > ${BATT_MON_FILE}
+else 
+	if test "${BATT_CENT}" -le "${WARN}" -a "${BATT_CENT}" -gt "${SHUTDOWN}"
+		then
+		if test "${BATT_LAST}" == "WARNED"
+			then
+			echo "WARNED" > ${BATT_MON_FILE}
+		else
+			echo "WARNED" > ${BATT_MON_FILE}
+			zenity --display=:0.0 --title "BATTERY LOW" --warning --text "${BATT} currently at ${BATT_CENT}%." &
+		fi
+	else 
+		if test ${BATT_CENT} -le ${SHUTDOWN}
+			then
+			echo "SHUTDOWN" > ${BATT_MON_FILE}
+			/usr/bin/sudo /sbin/shutdown -h now "${BATT} = ${BATT_CENT}%"
+		fi
+	fi
+fi
+
+cat >> ${BATT_MON_FILE} << EOF
+${BATT_MODE}
+${BATT_FULL}
+${BATT_CURR}
+${BATT_CENT}
+EOF
+
+exit 0

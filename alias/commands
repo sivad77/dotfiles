@@ -1,3 +1,7 @@
+#alias chrome='chromium --remote-debugging-port=9222'
+#alias chromium='chromium --remote-debugging-port=9222'
+#alias google-chrome='chromium --remote-debugging-port=9222'
+
 alias vim='vim -T xterm-256color'
 alias vi='vim -T xterm-256color'
 alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' | sort | uniq -c | sort -nr | head -n 20"

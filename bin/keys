@@ -14,7 +14,7 @@ volume() {
   case "${1}" in
         up) amixer -q set ${CHANNEL} 1+ ;; 
       down) amixer -q set ${CHANNEL} 1- ;; 
-    toggle) amixer -q set ${CHANNEL} toggle ;;
+      mute) amixer -q set ${CHANNEL} toggle ;;
          *) exit 1 ;;
   esac
 

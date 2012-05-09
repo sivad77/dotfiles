@@ -1,0 +1,17 @@
+
+#!/bin/bash
+
+IN="LVDS"
+EXT="DisplayPort-0"
+
+
+if (xrandr | grep "$IN" | grep discon)
+    then
+    xrandr --output $IN --off --output $EXT --auto
+    echo here
+    else
+        if (xrandr | grep "$IN" | grep " connected")
+            then
+            xrandr --output $EXT --off --output $IN --auto
+        fi
+fi

@@ -8,8 +8,8 @@ fi
 while true ; do
   
   # run our command
-  $@
+  bash -c "$*"
  
   # wait for file to save
-	inotifywait -q -q -e 'close_write' --exclude '^\..*\.sw[px]*$|4913|~$' .
+	inotifywait -r -q -q -e 'close_write' --exclude '^\..*\.sw[px]*$|4913|~$' .
 done

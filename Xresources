@@ -46,7 +46,7 @@
 
 !-- urxvt --!
 urxvt.scrollBar:          false
-urxvt.font:xft:terminus:pixelsize=14
+urxvt.font:xft:UbuntuMono-R:pixelsize=14
 urxvt.borderLess:         false
 urxvt.internalBorder:     1
 urxvt.buffered:           true
@@ -64,10 +64,10 @@ dzen2.foreground:         #B3B3B3
 dzen2.background:         #020202
 
 !-- xft --!
-Xft.autohint:             0
+Xft.autohint:             1
 Xft.lcdfilter:            lcddefault
 Xft.hintstyle:            hintslight
-Xft.hinting:              1
+Xft.hinting:              0
 Xft.antialias:            1
 Xft.rgba:                 rgb
 
@@ -99,8 +99,8 @@ URxvt.lineSpace:            0
 ! Fonts
 URxvt.allow_bold:           false
 
-URxvt*font: xft:terminus:pixelsize=14
-URxvt*boldFont: xft:terminus:pixelsize=14
+URxvt*font: xft:terminus:pixelsize=20
+URxvt*boldFont: xft:terminus:pixelsize=20
 
 /* URxvt*font: xft:Monospace:pixelsize=12 */
 /* URxvt*boldFont: xft:Monospace:pixelsize=12 */
@@ -123,10 +123,15 @@ URxvt.cursorUnderline:      false
 URxvt.pointerBlank:         true
 
 
-UXTerm*faceName:               Terminus
-UXTerm*faceSize:               10
+/* UXTerm*faceName:             Terminus */
+UXTerm*faceName:             Terminus
+UXTerm*faceSize:               16
 /* UXTerm*background:             #002b36 */
 /* UXTerm*foreground:             #657b83 */
 UXTerm*saveLines:              8192
+
+uxterm.utf8:               1
+UXTerm*eightBitInput: false
+UXTerm*metaSendsEscape: true
 
 !!Source http://github.com/altercation/solarized

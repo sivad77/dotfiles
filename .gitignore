@@ -1,2 +1,5 @@
 vim/backup/*
 vim/tmp/*
+vim/.netrwhist
+vim/bundle
+
