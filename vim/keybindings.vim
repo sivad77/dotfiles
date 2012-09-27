@@ -7,7 +7,7 @@ let mapleader = ","
 nnoremap Y y$
 
 " Trim & save
-noremap <Leader>sd :FixWhitespace<CR>:w<CR>
+noremap <Leader>fw :FixWhitespace<CR>:w<CR>
 
 " Buffer navigation
 noremap <Leader><Leader> <C-^>
