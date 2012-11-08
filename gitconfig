@@ -23,3 +23,5 @@
 	smtpencryption = tls
 	smtpuser = joshua.davis
 	smtppass = X3j11x3j11
+[push]
+	default = simple

@@ -6,6 +6,12 @@ let mapleader = ","
 " Yank from the cursor to the end of the line, to be consistent with C and D
 nnoremap Y y$
 
+map <leader>y "*y
+map <leader>p "*p
+
+map <leader>y "*y
+map <leader>p "*p
+
 " Trim & save
 noremap <Leader>fw :FixWhitespace<CR>:w<CR>
 

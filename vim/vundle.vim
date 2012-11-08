@@ -4,11 +4,13 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'tpope/vim-commentary'
-
+Bundle 'ivalkeen/vim-simpledb'
 Bundle 'gmarik/vundle'
+Bundle 'vim-scripts/dbext.vim'
+
 Bundle 'trailing-whitespace'
 Bundle 'Syntastic'
-" Bundle 'cucumber.zip'
+Bundle 'cucumber.zip'
 " Bundle 'bufexplorer.zip'
 " Bundle 'upAndDown'
 " Bundle 'vimwiki'

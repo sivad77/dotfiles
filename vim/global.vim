@@ -49,6 +49,21 @@ set backspace=2                            " Allow backspacing over autoindent, 
 set showmatch                              " Briefly jump to a paren once it's balanced
 set matchtime=2                            " (for only .2 seconds).
 
+" Remember cursor position
+set viminfo='10,\"100,:20,%,n~/.viminfo
+
+function! ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+
+augroup resCur
+  autocmd!
+  autocmd BufWinEnter * call ResCur()
+augroup END
+
 " Backups
 set backupdir=$HOME/.vim/backup
 set directory=$HOME/.vim/backup

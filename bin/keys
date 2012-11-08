@@ -1,7 +1,7 @@
 #!/bin/sh
 
 main() {
-  case "$1" in 
+  case "$1" in
     volume) volume $2;;
     backlight) backlight $2;;
     keyboard) keyboard $2;;
@@ -9,11 +9,11 @@ main() {
 }
 
 volume() {
-  CHANNEL="Master" 
+  CHANNEL="Master"
   VOLUME_SOUND="/usr/share/pommed/click.wav"
   case "${1}" in
-        up) amixer -q set ${CHANNEL} 1+ ;; 
-      down) amixer -q set ${CHANNEL} 1- ;; 
+        up) amixer -q set ${CHANNEL} 1000+ ;;
+      down) amixer -q set ${CHANNEL} 1000- ;;
       mute) amixer -q set ${CHANNEL} toggle ;;
          *) exit 1 ;;
   esac
@@ -30,18 +30,18 @@ backlight() {
       up) DELTA="+ 2500" ;;
     down) DELTA="- 2500" ;;
        *) exit 1 ;;
-  esac 
+  esac
 
   NEW_BRIGHTNESS=`echo "${CURR_BRIGHTNESS} ${DELTA}" | bc`
 
   if test ${NEW_BRIGHTNESS} -lt 0 ; then
     NEW_BRIGHTNESS = 0
-  fi  
+  fi
 
   echo $NEW_BRIGHTNESS
-  
-  echo ${NEW_BRIGHTNESS} > ${BACKLIGHT_SYS_DIR}/brightness 
- 
+
+  echo ${NEW_BRIGHTNESS} > ${BACKLIGHT_SYS_DIR}/brightness
+
 }
 
 keyboard() {
@@ -53,21 +53,21 @@ keyboard() {
       up) DELTA="+ 10" ;;
     down) DELTA="- 10" ;;
        *) exit 1 ;;
-  esac 
+  esac
 
   NEW_BRIGHTNESS=`echo "${CURR_BRIGHTNESS} ${DELTA}" | bc`
 
   if test ${NEW_BRIGHTNESS} -lt 0
     then
-    NEW_BRIGHTNESS=0 
+    NEW_BRIGHTNESS=0
   fi
 
   if test ${NEW_BRIGHTNESS} -gt ${MAX_BRIGHTNESS}
     then
-    NEW_BRIGHTNESS=${MAX_BRIGHTNESS} 
+    NEW_BRIGHTNESS=${MAX_BRIGHTNESS}
   fi
 
-  echo ${NEW_BRIGHTNESS} > ${BACKLIGHT_SYS_DIR}/brightness 
+  echo ${NEW_BRIGHTNESS} > ${BACKLIGHT_SYS_DIR}/brightness
 }
 
 main $@
